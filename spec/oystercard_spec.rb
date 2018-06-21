@@ -17,9 +17,7 @@ describe Oystercard do
       expect(oystercard.balance).to eq(0)
     end
 
-    it 'is initially not in journey' do
-      expect(oystercard).not_to be_in_journey
-    end
+
   end
 
   describe '#top_up' do
@@ -74,10 +72,10 @@ describe Oystercard do
       expect(oystercard).not_to be_in_journey
     end
 
-    # it 'accepts a exit_station when we touch out' do
-    #   oystercard.touch_in(exit_station)
-    #   expect(oystercard.touch_out(exit_station)).to eq exit_station
-    # end
+    it 'accepts a exit_station when we touch out' do
+      oystercard.touch_in(exit_station)
+      expect(oystercard.touch_out(exit_station)).to eq exit_station
+    end
 
     it 'forgets entry_station' do
       oystercard.touch_in(entry_station)

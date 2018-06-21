@@ -13,9 +13,7 @@ class Oystercard
     @balance += amount
   end
 
-  def in_journey?
-    !!entry_station # not entry_station = false not false = true
-  end
+
 
   def touch_in(station)
     raise "Insufficient balance to touch in" if low_balance?
@@ -27,6 +25,7 @@ class Oystercard
     @exit_station = station
     @journeys << {:entry_station => @entry_station, :exit_station => @exit_station}
     @entry_station = nil
+    @exit_station = nil
   end
 
   def low_balance?
